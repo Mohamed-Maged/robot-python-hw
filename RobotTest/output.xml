@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150825 15:23:40.976" generator="Robot 2.9 (Python 2.7 on win32)">
+<suite source="D:\Robot recording\Git\Pycharm\robot-python-hw\RobotTest\TestCase3.robot" id="s1" name="TestCase3">
+<test id="s1-t1" name="TC3_User_could_get_proper_error_if_enter_incorrect_login_or_password">
+<kw name="User Object" library="UserLib">
+<arguments>
+<arg>${Username}</arg>
+<arg>${NotValidPassword}</arg>
+<arg>usertest</arg>
+<arg>usertest</arg>
+<arg>usertest@usertest.com</arg>
+</arguments>
+<assign>
+<var>${user}</var>
+</assign>
+<msg timestamp="20150825 15:23:41.861" level="INFO">${user} = None</msg>
+<status status="NOT_RUN" endtime="20150825 15:23:41.861" starttime="20150825 15:23:41.860"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.862" starttime="20150825 15:23:41.862"></status>
+</kw>
+<kw name="Create User" library="UserApiLibClass">
+<arguments>
+<arg>qaserver10</arg>
+<arg>18081</arg>
+<arg>admin</arg>
+<arg>admin</arg>
+<arg>${user}</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20150825 15:23:41.863" level="INFO">${id} = None</msg>
+<status status="NOT_RUN" endtime="20150825 15:23:41.863" starttime="20150825 15:23:41.863"></status>
+</kw>
+<kw name="Login To CMP">
+<assign>
+<var>${Status}</var>
+</assign>
+<kw name="Open Browser to the Login Page">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${SiteUrl}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.866" starttime="20150825 15:23:41.865"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT_RUN" endtime="20150825 15:23:41.866" starttime="20150825 15:23:41.866"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.867" starttime="20150825 15:23:41.864"></status>
+</kw>
+<kw name="Enter User Name">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${UserLoginName}</arg>
+<arg>${Username}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.868" starttime="20150825 15:23:41.868"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.869" starttime="20150825 15:23:41.867"></status>
+</kw>
+<kw name="Enter Password">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${UserLoginPassword}</arg>
+<arg>${ValidPassword}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.870" starttime="20150825 15:23:41.870"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.871" starttime="20150825 15:23:41.869"></status>
+</kw>
+<kw name="Click Login">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LoginButton}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.873" starttime="20150825 15:23:41.873"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.874" starttime="20150825 15:23:41.872"></status>
+</kw>
+<kw name="Check user logged in">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${UserOptionsIcon}</arg>
+<arg>${TimeOut}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.876" starttime="20150825 15:23:41.875"></status>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>${DashboardTab}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.877" starttime="20150825 15:23:41.876"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.877" starttime="20150825 15:23:41.874"></status>
+</kw>
+<msg timestamp="20150825 15:23:41.878" level="INFO">${Status} = None</msg>
+<status status="PASS" endtime="20150825 15:23:41.878" starttime="20150825 15:23:41.864"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Status}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.879" starttime="20150825 15:23:41.879"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Status}'=='FAIL'</arg>
+<arg>Login Failed</arg>
+</arguments>
+<kw name="Login Failed">
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>${LoginFailed}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.882" starttime="20150825 15:23:41.881"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.882" starttime="20150825 15:23:41.881"></status>
+</kw>
+<status status="NOT_RUN" endtime="20150825 15:23:41.883" starttime="20150825 15:23:41.880"></status>
+</kw>
+<kw name="Delete User" library="UserApiLibClass">
+<arguments>
+<arg>qaserver10</arg>
+<arg>18081</arg>
+<arg>admin</arg>
+<arg>admin</arg>
+<arg>${id}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20150825 15:23:41.884" starttime="20150825 15:23:41.883"></status>
+</kw>
+<status status="PASS" endtime="20150825 15:23:41.884" critical="yes" starttime="20150825 15:23:41.859"></status>
+</test>
+<doc>Suite descriptio</doc>
+<status status="PASS" endtime="20150825 15:23:41.886" starttime="20150825 15:23:40.978"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="TestCase3" pass="1">TestCase3</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
